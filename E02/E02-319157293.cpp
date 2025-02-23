@@ -246,41 +246,75 @@ int main()
 		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
 		//model = glm::mat4(1.0);
 		
-		// Triangulo Rojo
-		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
-		model = glm::translate(model, glm::vec3(0.0f, 2.0f, -4.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
-		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		meshColorList[1]->RenderMeshColor();
 
-		// Triangulo Verde
-		model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -4.0f));
+		// Triangulo Verde (Arbol  Izquierdo)
+		model = glm::mat4(1.0);
+		model = glm::scale(model, glm::vec3(0.25f, 0.35f, 0.25f));
+		model = glm::translate(model, glm::vec3(-3.0f, -1.21f, -4.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		meshColorList[2]->RenderMeshColor();
 
-		// Triangulo Azul
-		model = glm::translate(model, glm::vec3(4.0f, 0.0f, -4.0f));
+		// Triangulo Verde (Arbol  Derecho)
+		model = glm::mat4(1.0);
+		model = glm::scale(model, glm::vec3(0.25f, 0.35f, 0.25f));
+		model = glm::translate(model, glm::vec3(3.0f, -1.21f, -4.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshColorList[2]->RenderMeshColor();
+
+		// Triangulo Azul 
+		model = glm::mat4(1.0);
+		model = glm::scale(model, glm::vec3(0.60f, 0.40f, 0.75f));
+		model = glm::translate(model, glm::vec3(0.0f, 1.5f, -4.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		meshColorList[3]->RenderMeshColor();
 
-		// Cuadrado Verde
+		// Cuadrado Verde (Ventana Izquierda)
 		model = glm::mat4(1.0);
-		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-		model = glm::translate(model, glm::vec3(-1.0f, -0.5f, -4.0f));
+		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
+		model = glm::translate(model, glm::vec3(-0.65f, -0.5f, -4.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshColorList[4]->RenderMeshColor();
+
+		// Cuadrado Verde (Ventana Derecha)
+		model = glm::mat4(1.0);
+		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
+		model = glm::translate(model, glm::vec3(0.65f, -0.5f, -4.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshColorList[4]->RenderMeshColor();
+
+		// Cuadrado Verde (Puerta)
+		model = glm::mat4(1.0);
+		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
+		model = glm::translate(model, glm::vec3(0.0f, -2.4f, -4.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		meshColorList[4]->RenderMeshColor();
 
 		// Cuadrado Rojo
-		model = glm::translate(model, glm::vec3(1.0f, 0.0f, -4.0f));
+		model = glm::mat4(1.0);
+		model = glm::scale(model, glm::vec3(1.0f, 1.5f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.0f, -0.3f, -4.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		meshColorList[5]->RenderMeshColor();
 
-		// Cuadrado Cafe
-		model = glm::translate(model, glm::vec3(1.0f, 0.0f, -4.0f));
+		// Cuadrado Cafe (Tronco arbol Derecho)
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.75f, -0.9f, -4.0f));
+		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshColorList[6]->RenderMeshColor();
+
+		// Cuadrado Cafe (Tronco arbol Izquierdo)
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-0.75f, -0.9f, -4.0f));
+		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model)); //FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		meshColorList[6]->RenderMeshColor();
