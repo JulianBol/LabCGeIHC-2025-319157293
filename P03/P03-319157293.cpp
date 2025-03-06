@@ -1,4 +1,4 @@
-//práctica 3: Modelado Geométrico y Cámara Sintética.
+//prï¿½ctica 3: Modelado Geomï¿½trico y Cï¿½mara Sintï¿½tica.
 #include <stdio.h>
 #include <string.h>
 #include<cmath>
@@ -10,7 +10,7 @@
 #include<gtc\matrix_transform.hpp>
 #include<gtc\type_ptr.hpp>
 #include <gtc\random.hpp>
-//clases para dar orden y limpieza al còdigo
+//clases para dar orden y limpieza al cï¿½digo
 #include"Mesh.h"
 #include"Shader.h"
 #include"Sphere.h"
@@ -86,7 +86,7 @@ void CrearCubo()
 	meshList.push_back(cubo);
 }
 
- //Pirámide triangular regular
+ //Pirï¿½mide triangular regular
 void CrearPiramideTriangular()
 {
 	unsigned int indices_piramide_triangular[] = {
@@ -110,19 +110,19 @@ void CrearPiramideTriangular()
 
 //void CrearPiramideTriangular()
 //{
-//	// Altura correcta para caras equiláteras
+//	// Altura correcta para caras equilï¿½teras
 //	float altura = sqrt(2.0f / 3.0f); // Altura de un tetraedro regular
 //
-//	// Coordenadas de la base (triángulo equilátero)
+//	// Coordenadas de la base (triï¿½ngulo equilï¿½tero)
 //	GLfloat vertices_piramide_triangular[] = {
 //		// x,     y,       z
-//		-0.5f, -0.5f,  0.0f,					// Vértice 0 (base)
-//		 0.5f, -0.5f,  0.0f,					// Vértice 1 (base)
-//		 0.0f, -0.5f, -sqrt(3) / 2.0f,			// Vértice 2 (base)
-//		 0.0f,  altura - 0.5f, -sqrt(3) / 6.0f  // Vértice 3 (cima)
+//		-0.5f, -0.5f,  0.0f,					// Vï¿½rtice 0 (base)
+//		 0.5f, -0.5f,  0.0f,					// Vï¿½rtice 1 (base)
+//		 0.0f, -0.5f, -sqrt(3) / 2.0f,			// Vï¿½rtice 2 (base)
+//		 0.0f,  altura - 0.5f, -sqrt(3) / 6.0f  // Vï¿½rtice 3 (cima)
 //	};
 //
-//	// Índices para formar las 4 caras triangulares
+//	// ï¿½ndices para formar las 4 caras triangulares
 //	unsigned int indices_piramide_triangular[] = {
 //		0, 1, 2,  // Base
 //		0, 1, 3,  // Cara 1
@@ -137,25 +137,25 @@ void CrearPiramideTriangular()
 //}
 
 /*
-Crear cilindro, cono y esferas con arreglos dinámicos vector creados en el Semestre 2023 - 1 : por Sánchez Pérez Omar Alejandro
+Crear cilindro, cono y esferas con arreglos dinï¿½micos vector creados en el Semestre 2023 - 1 : por Sï¿½nchez Pï¿½rez Omar Alejandro
 */
 void CrearCilindro(int res, float R) {
 
 	//constantes utilizadas en los ciclos for
 	int n, i;
-	//cálculo del paso interno en la circunferencia y variables que almacenarán cada coordenada de cada vértice
+	//cï¿½lculo del paso interno en la circunferencia y variables que almacenarï¿½n cada coordenada de cada vï¿½rtice
 	GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
 
 	vector<GLfloat> vertices;
 	vector<unsigned int> indices;
 
-	//ciclo for para crear los vértices de las paredes del cilindro
+	//ciclo for para crear los vï¿½rtices de las paredes del cilindro
 	for (n = 0; n <= (res); n++) {
 		if (n != res) {
 			x = R * cos((n)*dt);
 			z = R * sin((n)*dt);
 		}
-		//caso para terminar el círculo
+		//caso para terminar el cï¿½rculo
 		else {
 			x = R * cos((0)*dt);
 			z = R * sin((0)*dt);
@@ -222,7 +222,7 @@ void CrearCilindro(int res, float R) {
 		}
 	}
 
-	//Se generan los indices de los vértices
+	//Se generan los indices de los vï¿½rtices
 	for (i = 0; i < vertices.size(); i++) indices.push_back(i);
 
 	//se genera el mesh del cilindro
@@ -231,12 +231,12 @@ void CrearCilindro(int res, float R) {
 	meshList.push_back(cilindro);
 }
 
-////función para crear un cono
+////funciï¿½n para crear un cono
 //void CrearCono(int res,float R) {
 //
 //	//constantes utilizadas en los ciclos for
 //	int n, i;
-//	//cálculo del paso interno en la circunferencia y variables que almacenarán cada coordenada de cada vértice
+//	//cï¿½lculo del paso interno en la circunferencia y variables que almacenarï¿½n cada coordenada de cada vï¿½rtice
 //	GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
 //	
 //	vector<GLfloat> vertices;
@@ -247,7 +247,7 @@ void CrearCilindro(int res, float R) {
 //	vertices.push_back(0.5);
 //	vertices.push_back(0.0);
 //	
-//	//ciclo for para crear los vértices de la circunferencia del cono
+//	//ciclo for para crear los vï¿½rtices de la circunferencia del cono
 //	for (n = 0; n <= (res); n++) {
 //		x = R * cos((n)*dt);
 //		z = R * sin((n)*dt);
@@ -305,25 +305,25 @@ void CrearCono(int res, float R, bool multicolor) {
 		GLfloat xNext = R * cos((n + 1) * dt);
 		GLfloat zNext = R * sin((n + 1) * dt);
 
-		// Elegir un color único para la cara
+		// Elegir un color ï¿½nico para la cara
 		glm::vec3 color = faceColors[n % faceColors.size()];
 
-		// Vértice superior (duplicado para cada cara)
-		// Usamos la misma posición (0.0, 0.5, 0.0) pero como vértice único por cara
+		// Vï¿½rtice superior (duplicado para cada cara)
+		// Usamos la misma posiciï¿½n (0.0, 0.5, 0.0) pero como vï¿½rtice ï¿½nico por cara
 		vertices.insert(vertices.end(), { 0.0, 0.5, 0.0, color.x, color.y, color.z });
 
-		// Vértice base 1
+		// Vï¿½rtice base 1
 		vertices.insert(vertices.end(), { x, y, z, color.x, color.y, color.z });
 
-		// Vértice base 2
+		// Vï¿½rtice base 2
 		vertices.insert(vertices.end(), { xNext, y, zNext, color.x, color.y, color.z });
 
-		// Añadir los índices de la cara
-		unsigned int index = n * 3; // El vértice superior será siempre el primero
+		// Aï¿½adir los ï¿½ndices de la cara
+		unsigned int index = n * 3; // El vï¿½rtice superior serï¿½ siempre el primero
 		indices.insert(indices.end(), { index, index + 1, index + 2 });
 	}
 
-	// Crear la base del cono (todos los vértices de la base tienen el mismo color)
+	// Crear la base del cono (todos los vï¿½rtices de la base tienen el mismo color)
 	glm::vec3 baseColor = { 0.5f, 0.5f, 0.5f }; // Gris
 	for (int n = 0; n < res; n++) {
 		x = R * cos(n * dt);
@@ -331,16 +331,16 @@ void CrearCono(int res, float R, bool multicolor) {
 		GLfloat xNext = R * cos((n + 1) * dt);
 		GLfloat zNext = R * sin((n + 1) * dt);
 
-		// Vértice central de la base (todos tienen el mismo color)
+		// Vï¿½rtice central de la base (todos tienen el mismo color)
 		vertices.insert(vertices.end(), { 0.0, y, 0.0, baseColor.x, baseColor.y, baseColor.z });
 
-		// Vértice base 1
+		// Vï¿½rtice base 1
 		vertices.insert(vertices.end(), { x, y, z, baseColor.x, baseColor.y, baseColor.z });
 
-		// Vértice base 2
+		// Vï¿½rtice base 2
 		vertices.insert(vertices.end(), { xNext, y, zNext, baseColor.x, baseColor.y, baseColor.z });
 
-		// Añadir los índices de la base
+		// Aï¿½adir los ï¿½ndices de la base
 		unsigned int index = res * 3 + n * 3;
 		indices.insert(indices.end(), { index, index + 1, index + 2 });
 	}
@@ -362,7 +362,7 @@ void CreaAristasPiramide(int res, float R) {
 	vector<GLfloat> lineVertices;
 	vector<unsigned int> lineIndices;
 
-	// Agregar las líneas de las caras laterales
+	// Agregar las lï¿½neas de las caras laterales
 	for (int n = 0; n < res; n++) {
 		x = R * cos(n * dt);
 		z = R * sin(n * dt);
@@ -372,15 +372,15 @@ void CreaAristasPiramide(int res, float R) {
 		// Color negro para las aristas
 		glm::vec3 lineColor = { 0.0f, 0.0f, 0.0f };
 
-		// Vértice superior -> Vértice base 1
+		// Vï¿½rtice superior -> Vï¿½rtice base 1
 		lineVertices.insert(lineVertices.end(), { 0.0f, 0.5f, 0.0f, lineColor.x, lineColor.y, lineColor.z });
 		lineVertices.insert(lineVertices.end(), { x, y, z, lineColor.x, lineColor.y, lineColor.z });
 
-		// Vértice superior -> Vértice base 2
+		// Vï¿½rtice superior -> Vï¿½rtice base 2
 		lineVertices.insert(lineVertices.end(), { 0.0f, 0.5f, 0.0f, lineColor.x, lineColor.y, lineColor.z });
 		lineVertices.insert(lineVertices.end(), { xNext, y, zNext, lineColor.x, lineColor.y, lineColor.z });
 
-		// Vértice base 1 -> Vértice base 2 (línea en la base)
+		// Vï¿½rtice base 1 -> Vï¿½rtice base 2 (lï¿½nea en la base)
 		lineVertices.insert(lineVertices.end(), { x, y, z, lineColor.x, lineColor.y, lineColor.z });
 		lineVertices.insert(lineVertices.end(), { xNext, y, zNext, lineColor.x, lineColor.y, lineColor.z });
 
@@ -398,7 +398,7 @@ void CreaAristasPiramide(int res, float R) {
 
 
 
-//función para crear pirámide cuadrangular unitaria
+//funciï¿½n para crear pirï¿½mide cuadrangular unitaria
 void CrearPiramideCuadrangular()
 {
 	vector<unsigned int> piramidecuadrangular_indices = {
@@ -445,28 +445,28 @@ int main()
 {
 	mainWindow = Window(800, 600);
 	mainWindow.Initialise();
-	//Cilindro y cono reciben resolución (slices, rebanadas) y Radio de circunferencia de la base y tapa
+	//Cilindro y cono reciben resoluciï¿½n (slices, rebanadas) y Radio de circunferencia de la base y tapa
 
-	CrearCubo();//índice 0 en MeshList
-	CrearPiramideTriangular();//índice 1 en MeshList
-	CrearCilindro(25, 1.0f);//índice 2 en MeshList
-	CrearCono(3, 2.0f, false); //índice 3 en MeshList (Piramide negra)
-	CrearCono(3, 2.0f, true); //índice 4 en MeshList (Piramide colores)
+	CrearCubo();//ï¿½ndice 0 en MeshList
+	CrearPiramideTriangular();//ï¿½ndice 1 en MeshList
+	CrearCilindro(25, 1.0f);//ï¿½ndice 2 en MeshList
+	CrearCono(3, 2.0f, false); //ï¿½ndice 3 en MeshList (Piramide negra)
+	CrearCono(3, 2.0f, true); //ï¿½ndice 4 en MeshList (Piramide colores)
 	CreaAristasPiramide(3, 2.0f); // indice 5 (aristas piramide)
-	CrearPiramideCuadrangular();//índice 6 en MeshList
+	CrearPiramideCuadrangular();//ï¿½ndice 6 en MeshList
 	CreateShaders();
 	
 	
 
-	/*Cámara se usa el comando: glm::lookAt(vector de posición, vector de orientación, vector up));
+	/*Cï¿½mara se usa el comando: glm::lookAt(vector de posiciï¿½n, vector de orientaciï¿½n, vector up));
 	En la clase Camera se reciben 5 datos:
-	glm::vec3 vector de posición,
+	glm::vec3 vector de posiciï¿½n,
 	glm::vec3 vector up,
-	GlFloat yaw rotación para girar hacia la derecha e izquierda
-	GlFloat pitch rotación para inclinar hacia arriba y abajo
+	GlFloat yaw rotaciï¿½n para girar hacia la derecha e izquierda
+	GlFloat pitch rotaciï¿½n para inclinar hacia arriba y abajo
 	GlFloat velocidad de desplazamiento,
 	GlFloat velocidad de vuelta o de giro
-	Se usa el Mouse y las teclas WASD y su posición inicial está en 0,0,1 y ve hacia 0,0,-1.
+	Se usa el Mouse y las teclas WASD y su posiciï¿½n inicial estï¿½ en 0,0,1 y ve hacia 0,0,-1.
 	*/
 
 	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 0.3f, 0.3f);
@@ -498,7 +498,7 @@ int main()
 		lastTime = now;
 		//Recibir eventos del usuario
 		glfwPollEvents();
-		//Cámara
+		//Cï¿½mara
 		camera.keyControl(mainWindow.getsKeys(), deltaTime);
 		camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
 
@@ -525,7 +525,7 @@ int main()
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
-		//meshList[4]->RenderMeshGeometry();
+		meshList[4]->RenderMeshGeometry();
 		
 
 		// ARISTAS SOLAMENTE
@@ -537,13 +537,13 @@ int main()
 		model = glm::scale(model, glm::vec3(5.0f, 10.0f, 5.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
-		//meshList[4]->RenderMeshGeometryAristas();
+		meshList[4]->RenderMeshGeometryAristas();
 
 
 
 
 
-		// EJERCICIO DE PRÁCTICA
+		// EJERCICIO DE PRï¿½CTICA
 
 		shaderList[0].useShader();
 		uniformModel = shaderList[0].getModelLocation();
@@ -560,8 +560,8 @@ int main()
 		model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
 		//model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));		
-		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
-		//se programe cambio entre proyección ortogonal y perspectiva
+		//la lï¿½nea de proyecciï¿½n solo se manda una vez a menos que en tiempo de ejecuciï¿½n
+		//se programe cambio entre proyecciï¿½n ortogonal y perspectiva
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		
